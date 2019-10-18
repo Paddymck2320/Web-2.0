@@ -15,6 +15,16 @@ function grabFile(file) {
 function parseResponse(request) {
 	if (request.readyState == 4) {
 		if (request.status == 200 || request.status == 304) {
+			var data = JSON.parse(request.responseText)
+			var name = data.person.name;
+			var email = data.person.email;
+			var website = data.person.website;
+			var line1 = "<h2><a href=mailto:" + email +  ">" + name + "</a></h2>";
+			var line2 = "";
+			var link = document.createElement("a");
+			link.setAttribute("href", website);
+			var linktext = document.createTextNode(website);
+			link.appendChild(linktext);
 			var details = document.getElementById("details");
 			details.innerHTML = request.responseText;
 		}
