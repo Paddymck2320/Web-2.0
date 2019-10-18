@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">	
+    <title>Average Test Scores</title>
+    <script>
+        var entry;
+		var average;
+        var scores = [];
+		var total = 0;
+		var min = 100;
+		var max = 0;
+		var print = "";
+		
+		do{
+			entry = prompt("Enter test score (or 999 to finish) ");
+			entry = parseInt(entry);
+			
+			if (entry >= 0 && entry<=100){
+				scores[scores.length] = entry;
+			}
+			else if (entry != 999){
+				alert("Entry must be a valid number from 0 through 100\n" + "Or enter 999 to end entries");
+			}
+		}while (entry != 999);
+				
+		for (var i = 0; i < scores.length; i++)
+		{
+			if(scores[i]>40)
+			{
+				print+=scores[i]+"-Pass \n";
+			}
+			else
+			{
+				print+=scores[i]+"-Fail \n";
+			}
+		}
+		for (var i = 0; i < scores.length; i++)
+		{
+			total+=scores[i];
+		}
+		for (var i = 0; i < scores.length; i++)
+		{
+			if(max < scores[i])
+			{
+				max = scores[i];
+			}
+		}
+		print+="Max is " + max + "\n";
+		average = (total/scores.length);
+		print += "Average score is " + average.tofixed(2) + "\n";
+		alert(print);
+    </script>
+</head>
+<body>
+    Thanks for using the Test Scores application!
+</body>
+</html>
