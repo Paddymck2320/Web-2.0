@@ -1,36 +1,26 @@
-var $ = function (id) { return document.getElementById(id); };
+var student = {
+    iD :  ,  
+    name : "Patrick Mckiernan",
+    address : "Bastardstown," + "\n" + "Co.Wexford",
+    grades : [54, 63, 78],
 
-var displayScores = function () {   
-    
-};
+    addGrade: function(grade){
+        this.grades.push(grade);
+    },
+    getAverage: function(grade,grades){
+        var c = 0;
+        for(var i = 0; i < this.grades.length; i++)
+        {
+            c += this.grades[i];
+        }
+        return (c/this.grades.length).toFixed(2);
+    },
+    toString: function(){
+        return  "ID: " + this.iD + "\n" + this.name + "\n" + this.address + "\n" + "Grades: " + this.grades + "\n" + "Average: " + this.getAverage(); 
+    }
+}
 
-var addScore = function () {
-    
-    
-    // get the add form ready for next entry
-    $("first_name").value = "";
-    $("last_name").value = "";
-    $("score").value = "";
-    $("first_name").focus();
-};
-
-var clearScores = function () {   
-
-    
-    // remove the score data from the web page
-    $("average_score").value = "";
-    $("scores").value = "";
-    
-    $("first_name").focus();
-};
-
-var sortScores = function () {   
-     
-};
-
-window.onload = function () {
-    $("add_button").onclick = addScore;
-    $("clear_button").onclick = clearScores;    
-    $("sort_button").onclick = sortScores;    
-    $("first_name").focus();
-};
+student.addGrade(59);
+student.addGrade(44);
+student.addGrade(88);
+alert(student.toString());
