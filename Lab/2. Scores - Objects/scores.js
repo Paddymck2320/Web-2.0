@@ -1,5 +1,5 @@
 var student = {
-    iD :  ,  
+    iD : 5600264628,  
     name : "Patrick Mckiernan",
     address : "Bastardstown," + "\n" + "Co.Wexford",
     grades : [54, 63, 78],
@@ -16,7 +16,7 @@ var student = {
         return (c/this.grades.length).toFixed(2);
     },
     toString: function(){
-        return  "ID: " + this.iD + "\n" + this.name + "\n" + this.address + "\n" + "Grades: " + this.grades + "\n" + "Average: " + this.getAverage(); 
+        return  "ID: " + this.iD + "\n" +"Name: " + this.name + "\n" +"Address: " + this.address + "\n" + "Grades: " + this.grades + "\n" + "Average: " + this.getAverage(); 
     }
 }
 
