@@ -1,17 +1,27 @@
 var $ = function (id) { return document.getElementById(id); };
 
+var scores = [];
+var studentNames = [];
+
 var displayScores = function () {   
-    
+    $("scores").value += studentNames;
 };
 
 var addScore = function () {
+   var name =  $("first_name").value;
+   var lastname = $("last_name").value; 
+   var score = parseInt($("score").value);
     
-    
+   scores.push(score);
+    var x = name + ", " + lastname +" : " + score + "\n";
+    studentNames.push(x);
+
     // get the add form ready for next entry
     $("first_name").value = "";
     $("last_name").value = "";
     $("score").value = "";
     $("first_name").focus();
+    displayScores();
 };
 
 var clearScores = function () {   
